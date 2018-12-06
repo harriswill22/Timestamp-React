@@ -1,13 +1,17 @@
 import React from 'react';
 
+function convertDatesToItems(someDates) { 
+    const datesAsListItems = someDates.map((dateString) => {
+        return (<li>{dateString}</li>);
+    });
+    return datesAsListItems;
+}
+
 const DateList = (props) =>{
     return(
-
 <ul className="date-list">
-    {props.dates}
+    {convertDatesToItems(props.dates)}
 </ul>
-
-
     );
 };
 
