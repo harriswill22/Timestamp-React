@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import DateList from './DateList'
+import StampButton from './StampButton'
 
 // const someDates =[
 //   '2018-12-06 09:21:21',
@@ -24,31 +25,36 @@ class App extends Component {
   render() {
     return (
       <div className="main-component">
-        <button onClick={() => {
-          const newDate =new Date();
-          // someDates.push(newDate);
-          this.setState({
-            
-              // replace the value of dates 
-              // with a new array
-              dates: [
-              // it should contain 
-              // all the existing values from this.state
-              ...this.state.dates,
-
-              // also new date object as string
-              newDate.toLocaleString()
-            ]
-          });
-        }} 
-        className="my-button"> Click me </button>
-    
+        <StampButton handleClick={this._addDate}/>
+        
       <DateList
       dates={this.state.dates}
       />
       </div>
     );
   }
+
+  _addDate = () =>{
+    const newDate =new Date();
+    this.setState({     
+      // replace the value of dates 
+      // with a new array
+      dates: [
+      // it should contain 
+      // all the existing values from this.state
+      ...this.state.dates,
+      // also new date object as string
+      newDate.toLocaleString()
+  ]
+  });
+  }
+
+
+
+  
 }
+
+
+
 
 export default App;
